@@ -2,26 +2,53 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nori pixl gamelab</title>
-    <style>
-        
-    </style>
+    <title>お問い合わせフォーム</title>
 </head>
 <body>
 
-    <div class="container">
+    <h1>お問い合わせ</h1>
 
-        <!-- お問い合わせ（メールアドレスの表示） -->
-        <h2>お問い合わせ</h2>
-        <table>
+    <!-- action属性に送信先のURLを記述してください -->
+    <form action="https://chevy-modes-mothers-beth.trycloudflare.com/submit" method="POST">
+        
+        <!-- border="1" をつけると枠線が表示されます。不要なら "0" にしてください -->
+        <table border="1" cellpadding="10" cellspacing="0">
             <tr>
-                <th>メールアドレス</th>
-                <!-- your-email@example.com の部分をご自身のメールアドレスに書き換えてください -->
-                <td><a href="mailto:sato.shigure4@gmail.com">your-email@example.com</a></td>
+                <!-- お名前 -->
+                <td><label for="name">お名前 <small>(必須)</small></label></td>
+                <td><input type="text" id="name" name="name" required placeholder="山田 太郎" size="30"></td>
+            </tr>
+            <tr>
+                <!-- メールアドレス -->
+                <td><label for="email">メールアドレス <small>(必須)</small></label></td>
+                <td><input type="email" id="email" name="email" required placeholder="example@email.com" size="30"></td>
+            </tr>
+            <tr>
+                <!-- お問い合わせ種別（セレクトボックス） -->
+                <td><label for="subject">件名</label></td>
+                <td>
+                    <select id="subject" name="subject">
+                        <option value="ご意見・ご感想">ご意見・ご感想</option>
+                        <option value="サービスについて">サービスについて</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <!-- お問い合わせ内容 -->
+                <td><label for="message">お問い合わせ内容 <small>(必須)</small></label></td>
+                <td><textarea id="message" name="message" rows="8" cols="40" required placeholder="内容をご記入ください"></textarea></td>
+            </tr>
+            <tr>
+                <!-- 送信ボタン（中央に配置するために colspan を使用） -->
+                <td colspan="2" align="center">
+                    <button type="submit">確認画面へ（送信）</button>
+                    <button type="reset">入力をクリア</button>
+                </td>
             </tr>
         </table>
-    </div>
+
+    </form>
 
 </body>
 </html>
